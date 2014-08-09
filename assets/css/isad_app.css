@@ -1,0 +1,75 @@
+h1, h2, h3 {
+    color: #8C0209;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    margin-top: 1px;
+    padding-right: 0;
+    text-align: left;
+}
+
+p {
+    font-size: 1.1em;
+}
+
+img, .diagram-label {
+	display: block;
+}
+
+/*
+ * table {
+	border:1px solid black;
+}
+td {
+	white-space:nowrap;
+	border:1px solid black;
+}
+*/
+
+table.techno {
+    border: 1px solid #3E83C9;
+    border-collapse: collapse;
+    font-family: arial,sans-serif;
+    font-size: 1.2em;
+    margin-left: 10px;
+    padding: 0;
+}
+table.techno td {
+    border: 1px solid #95BCE2;
+    padding: 5px;
+    text-align: center;
+}
+table.techno thead tr th {
+    background: none repeat scroll 0 0 #3E83C9;
+    border: 1px solid #95BCE2;
+    color: #FFFFFF;
+    padding: 3px;
+}
+table.techno tbody th {
+    background: none repeat scroll 0 0 #6699CC;
+    text-align: left;
+}
+table.techno tbody tr.alt td {
+    background: none repeat scroll 0 0 #ECF6FC;
+    padding: 3px;
+}
+table.techno tbody tr {
+    background: none repeat scroll 0 0 #FFFFFF;
+}
+table.techno tr.alt:hover td, table.techno tr:hover td {
+    background: none repeat scroll 0 0 #BDD5ED;
+}
+table.data {
+    border: 1px solid #C0C0C0;
+    border-collapse: collapse;
+    font-family: arial,sans-serif;
+    font-size: 1.2em;
+    padding: 0;
+}
+table.data thead th {
+    background: none repeat scroll 0 0 #DEDEDE;
+    border-bottom: 1px solid #3E50FF;
+    padding: 3px;
+}
+table.data td {
+    border: 1px dotted #DEDEDE;
+    padding: 1px;
+}

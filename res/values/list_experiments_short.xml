@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="experiments_short">
+        <item>Identification of Requirements</item>
+        <item>Estimation of Project Metrics</item>
+        <item>Use Case Diagrams</item>
+        <item>E-R Modeling</item>
+        <item>Identifying Domain Classes</item>
+        <item>Statechart and Activity Modeling</item>
+        <item>Class and Sequence Diagrams</item>
+        <item>Modeling Data Flow Diagrams</item>
+        <item>Test Coverage Metrics</item>
+        <item>Designing Test Suites</item>
+    </string-array>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Single List Item Design -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent" 
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/experiment_id"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:typeface="monospace" >
+
+	</TextView>
+	
+	<TextView
+    android:id="@+id/experiment_title"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:textSize="16sp"
+        android:textStyle="bold" >
+	</TextView>
+</LinearLayout>

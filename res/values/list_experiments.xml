@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="experiments">
+        <item>Identifying the Requirements from Problem Statements</item>
+        <item>Estimation of Project Metrics</item>
+        <item>Modeling UML Use Case Diagrams and Capturing Use Case Scenarios</item>
+        <item>E-R Modeling from the Problem Statements</item>
+        <item>Identifying Domain Classes from the Problem Statements</item>
+        <item>Statechart and Activity Modeling</item>
+        <item>Modeling UML Class Diagrams and Sequence Diagrams</item>
+        <item>Modeling Data Flow Diagrams</item>
+        <item>Estimation of Test Coverage Metrics and Structural Complexity</item>
+        <item>Designing Test Suites</item>
+    </string-array>
+</resources>
