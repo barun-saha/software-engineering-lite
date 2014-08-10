@@ -1,10 +1,10 @@
-INSERT INTO "isad_book" VALUES  (1,'Software Engineering: A Practioner''s Approach','Roger S. Pressman','McGraw Hills','7th Edition, 2009'),
- (2,'Software Engineering','Ian Sommerville','Addison Wesley Longman','9th Edition, March 2010'),
- (3,'Fundamentals of Software Engineering','Rajib Mall','Prentice-Hall of India','3rd Edition, 2009'),
+INSERT INTO "isad_book" VALUES  (1,'Software Engineering: A Practitioner''s Approach','Roger S. Pressman','McGraw Hills','7<sup>th</sup> Edition, 2009'),
+ (2,'Software Engineering','Ian Sommerville','Addison Wesley Longman','9<sup>th</sup> Edition, March 2010'),
+ (3,'Fundamentals of Software Engineering','Rajib Mall','Prentice-Hall of India','3<sup>rd</sup> Edition, 2009'),
  (4,'Requirements Engineering: A Good Practice Guide','Ian Sommerville, Pete Sawyer','Wiley India Pvt Ltd','2009'),
- (5,'Object-Oriented Modeling and Design with UML','Michael Blaha, James Rumbaugh','Prentice-Hall of India','2nd Edition'),
+ (5,'Object-Oriented Modeling and Design with UML','Michael Blaha, James Rumbaugh','Prentice-Hall of India','2<sup>nd</sup> Edition'),
  (6,'Object-Oriented Analysis and Design using UML','Mahesh P. Matha','Prentice-Hall of India',''),
- (7,'Database System Concepts','Henry F. Korth , Abraham Silberschatz','McGraw Hills','5th Edition'),
- (8,'UML and C++  A Practical Guide To Object-Oriented Development','Richard C. Lee, William M. Tepfenhart','Prentice-Hall of India','2nd Edition, 2005'),
+ (7,'Database System Concepts','Henry F. Korth , Abraham Silberschatz','McGraw Hills','5<sup>th</sup> Edition'),
+ (8,'UML and C++  A Practical Guide To Object-Oriented Development','Richard C. Lee, William M. Tepfenhart','Prentice-Hall of India','2<sup>nd</sup> Edition, 2005'),
  (9,'Just Enough Software Test Automation','Daniel J. Mosley, Bruce A. Posey','Prentice Hall','July 2002'),
- (10,'THE UNIFIED MODELING LANGUAGE USER GUIDE','GRADY BOOCH, JAMES RUMBAUGH, IVAR JACOBSON','ADDISON-WESLEY','Low Priced Edition, 2000');
+ (10,'The Unified Modeling Language User Guide','Grady Booch, James Rumbaugh, Ivar Jacobson','Addison-Wesley','Low Priced Edition, 2000');

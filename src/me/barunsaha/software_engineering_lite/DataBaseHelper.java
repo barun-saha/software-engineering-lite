@@ -264,7 +264,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	    		"theory_id=?", 
 	    		new String[] {String.valueOf(id)}, 
 	    		null, null, 
-	    		"isad_book._id desc");
+	    		"isad_reference._id ASC");
 	    
 	    while (cursor.moveToNext()) {
 	    	ReferenceContent reference = 

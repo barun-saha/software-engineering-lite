@@ -29,6 +29,7 @@ public class MainActivity extends ListActivity {
 	private static final String FIRST_RUN = "firstRun";
 
 	private final static String SHARE_MSG = "Have you used Software Engineering Lite yet? Download and give it a try today!";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

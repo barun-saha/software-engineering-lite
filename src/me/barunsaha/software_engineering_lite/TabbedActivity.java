@@ -51,14 +51,16 @@ public class TabbedActivity extends FragmentActivity implements
         
         // Initilization
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mActionBar = getActionBar();
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager(), mExperimentId);
  
         assert mViewPager != null : "viewPager is null";
         Log.d("SE", "" + mViewPager + " " +  mAdapter);
         
         mViewPager.setAdapter(mAdapter);
+        
+        mActionBar = getActionBar();
         mActionBar.setHomeButtonEnabled(true);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);        
  
         // Adding Tabs
