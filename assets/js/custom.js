@@ -57,8 +57,9 @@ $(document).on("click", "button#btnSubmit", function(){
 	else if (nCorrect == 0)
 		mesg = "All of your answers are, unfortunately, wrong! Please revise the topics."
 	else
-		mesg = "" + nCorrect + " answers out of " + nQuestions + " questions are correct!"
+		mesg = "" + nCorrect + " answer(s) out of " + nQuestions + " questions are correct!"
 	$("#results").text(mesg);
+	$("#results").css({"font-size": "1.1em", "background-color": "#FFFF66", "padding": "2px"});
 
 });
 

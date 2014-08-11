@@ -11,7 +11,6 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 	
@@ -53,16 +52,11 @@ public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 	protected void onPreExecute() {
 		super.onPreExecute();
 		
-		Toast.makeText(mContext, 
-				"Copying resource files ...", Toast.LENGTH_SHORT)
-		.show();
-		
 		mProgressDialog = new ProgressDialog(mContext);
         mProgressDialog.setMessage("Copying resource files ...");
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
-		
 	}
 	
 
@@ -75,10 +69,6 @@ public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 	@Override
 	protected void onPostExecute(Void result) {
 		super.onPostExecute(result);
-		
-		Toast.makeText(mContext, 
-				"All resources copied!", Toast.LENGTH_SHORT)
-		.show();
 		
 		if (mProgressDialog.isShowing())
 			mProgressDialog.dismiss();
