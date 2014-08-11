@@ -13,7 +13,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
-import android.util.Log;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -176,11 +175,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	    		"theory_id=?",
 	            new String[] { String.valueOf(id) }, 
 	            null, null, null, null);
-	    Log.i(MainActivity.TAG, cursor.toString() + " " + id);
+	    //Log.i(MainActivity.TAG, cursor.toString() + " " + id);
 	    
 	    if (cursor != null) {
 	        boolean status = cursor.moveToFirst();
-	        Log.i(MainActivity.TAG, "Cursor status: " + status);
+	        //Log.i(MainActivity.TAG, "Cursor status: " + status);
 	    }
 	 
 	    CaseStudyContent caseStudy = new CaseStudyContent(id,
@@ -203,7 +202,6 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	            new String[] { String.valueOf(id) }, 
 	            null, null, 
 	            "question_num ASC", null);
-	    Log.i(MainActivity.TAG, cursor.toString() + " " + id);
 	    
 //		    if (cursor != null) {
 //		        boolean status = cursor.moveToFirst();
@@ -274,7 +272,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		    
 		    all.add(reference);
 	    }
-	    Log.i(MainActivity.TAG, all.toString());
+	    //Log.i(MainActivity.TAG, all.toString());
 	    
 	    return all;
 	}
@@ -291,7 +289,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		//String outFileName = DB_PATH + "/" + DB_NAME;
 		String outFileName = mContext.getDatabasePath(DB_NAME).toString();
 
-		Log.i(MainActivity.TAG, "" + myInput + " " + outFileName);
+		//Log.i(MainActivity.TAG, "" + myInput + " " + outFileName);
 	    
 		// Open the empty db as the output stream
 		OutputStream myOutput = new FileOutputStream(outFileName);

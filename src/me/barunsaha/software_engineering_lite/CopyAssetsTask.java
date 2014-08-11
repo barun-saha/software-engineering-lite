@@ -10,7 +10,10 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
-import android.util.Log;
+
+/*
+ * Copy assets and create the database. 
+ */
 
 public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 	
@@ -86,26 +89,22 @@ public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 		AssetManager manager = mContext.getAssets();
 
 		// If we have a directory, we make it and recurse. If a file, we copy
-		// its
-		// contents.
+		// its contents.
 		try {
 			String[] contents = manager.list(path);
 
 			// The documentation suggests that list throws an IOException, but
-			// doesn't
-			// say under what conditions. It'd be nice if it did so when the
-			// path was
-			// to a file. That doesn't appear to be the case. If the returned
-			// array is
-			// null or has 0 length, we assume the path is to a file. This means
-			// empty
-			// directories will get turned into files.
+			// doesn't say under what conditions. It'd be nice if it did so when 
+			// the path was to a file. That doesn't appear to be the case. If 
+			// the returned array is null or has 0 length, we assume the path is 
+			// to a file. This means empty directories will get turned 
+			// into files.
 			if (contents == null || contents.length == 0)
 				throw new IOException();
 
 			// Make the directory.
 			File dir = new File(mContext.getExternalFilesDir(null), path);
-			Log.i(MainActivity.TAG, "Creating directories " + dir.getAbsolutePath());
+			//Log.i(MainActivity.TAG, "Creating directories " + dir.getAbsolutePath());
 			dir.mkdirs();
 
 			// Recurse on the contents.
@@ -141,44 +140,7 @@ public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 			out.close();
 			in.close();
 		} catch (IOException e) {
-			Log.i(MainActivity.TAG, e.toString());
+			//Log.i(MainActivity.TAG, e.toString());
 		}
 	}
-	/*
-	*//**
-	 * Copies your database from your local assets-folder to the just created
-	 * empty database in the system folder, from where it can be accessed and
-	 * handled. This is done by transferring byte stream.
-	 * *//*
-	private void copyDataBase() throws IOException {
-		// Open your local db as the input stream
-		InputStream myInput = mContext.getAssets().open(DataBaseHelper.DB_NAME);
-		// Path to the just created empty db
-		//String outFileName = DB_PATH + "/" + DB_NAME;
-		String outFileName = mContext.getDatabasePath(DataBaseHelper.DB_NAME).toString();
-
-		Log.i(MainActivity.TAG, "" + myInput + " " + outFileName);
-		
-	    // check if databases folder exists, if not create one and its subfolders
-		File databaseFile = new File(outFileName);
-	    if (!databaseFile.exists()){
-	        databaseFile.mkdir();
-	    }
-	    
-		// Open the empty db as the output stream
-		OutputStream myOutput = new FileOutputStream(outFileName);
-
-		// transfer bytes from the inputfile to the outputfile
-		byte[] buffer = new byte[1024];
-		int length;
-		while ((length = myInput.read(buffer)) > 0) {
-			myOutput.write(buffer, 0, length);
-		}
-
-		// Close the streams
-		myOutput.flush();
-		myOutput.close();
-		myInput.close();
-	}*/
-
 }

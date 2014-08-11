@@ -2,7 +2,6 @@ package me.barunsaha.software_engineering_lite;
 
 import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.webkit.WebView;
 
 public abstract class ExperimentFragment extends Fragment {
@@ -28,21 +27,9 @@ public abstract class ExperimentFragment extends Fragment {
 
 	protected static String imagesPath = "";
 	
-	//08-02 10:43:47.184: I/SE-Lite(1979): imagesPath: file:///android_asset/images/theory/4/
-
-		
-	//public ExperimentFragment() {
-		//if (TabbedActivity.isEmulator) {
-			//jqueryStyleSheet = "file:///android_asset/lib/jquery_mobile/jquery.mobile-1.4.3.min.css";
-			//jqueryMobileJs = "file:///android_asset/lib/jquery_mobile/jquery-1.11.1.min.js";
-			//jqueryMobileJs = "file:///android_asset/lib/jquery_mobile/jquery.mobile-1.4.3.min.js";
-		//}
-	//}
-
 	@SuppressLint("SetJavaScriptEnabled")
 	@Override
 	public void onStart() {
-		// TODO Auto-generated method stub
 		super.onStart();
 
 		WebView wview = getWebView();
@@ -66,8 +53,8 @@ public abstract class ExperimentFragment extends Fragment {
 	protected void display(WebView wView) {
 		//String imagesPath;
 		
-		Log.i(MainActivity.TAG, "emulator: " + TabbedActivity.isEmulator);		
-		Log.i(MainActivity.TAG, "loadData imagesPath: " + imagesPath);
+		//Log.i(MainActivity.TAG, "emulator: " + TabbedActivity.isEmulator);		
+		//Log.i(MainActivity.TAG, "loadData imagesPath: " + imagesPath);
 		
 		//Toast.makeText(getApplicationContext(), imagesPath, 
 			//	Toast.LENGTH_LONG)

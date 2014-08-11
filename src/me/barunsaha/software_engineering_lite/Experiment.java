@@ -4,7 +4,6 @@ public class Experiment {
 
 	private int mId;
 	private String mTitle;
-	//private String theory = "";
 	
 	public Experiment(int id, String title) {
 		super();
@@ -16,7 +15,6 @@ public class Experiment {
 		super();
 		this.mId = id;
 		this.mTitle = title;
-		//this.theory = content;
 	}
 	
 	public int getId() {
@@ -26,11 +24,7 @@ public class Experiment {
 	public String getTitle() {
 		return mTitle;
 	}
-
-	//public String getTheory() {
-		//return theory;
-	//}
-
+	
 	@Override
 	public String toString() {
 		return "Experiment [mId=" + mId + ", mTitle=" + mTitle + "]";

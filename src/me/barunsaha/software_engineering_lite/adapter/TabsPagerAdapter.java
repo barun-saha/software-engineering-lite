@@ -27,14 +27,11 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
         switch (index) {
         case 0:
-            // Top Rated fragment activity
             //return new TheoryFragment();
         	return TheoryFragment.getInstance(mExperimentId);
         case 1:
-            // Games fragment activity
             return SelfEvaluationFragment.getInstance(mExperimentId);
         case 2:
-            // Movies fragment activity
             return CaseStudyFragment.getInstance(mExperimentId);
         case 3:
         	return ReferenceFragment.getInstance(mExperimentId);

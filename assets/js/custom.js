@@ -58,6 +58,7 @@ $(document).on("click", "button#btnSubmit", function(){
 		mesg = "All of your answers are, unfortunately, wrong! Please revise the topics."
 	else
 		mesg = "" + nCorrect + " answer(s) out of " + nQuestions + " questions are correct!"
+
 	$("#results").text(mesg);
 	$("#results").css({"font-size": "1.1em", "background-color": "#FFFF66", "padding": "2px"});
 

@@ -58,23 +58,11 @@ public class MainActivity extends ListActivity {
 			editor.putBoolean(FIRST_RUN, false);
 			editor.commit();
 		}
-		
-		/*
-		copyAssets("css");
-		copyAssets("images");
-		copyAssets("js");
-		copyAssets("lib");
-		*/
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		Experiment item = (Experiment) getListAdapter().getItem(position);
-		// Toast.makeText(this, item.getTitle() + " selected",
-		// Toast.LENGTH_LONG).show();
-
-		// selected item
-		// String title = ((TextView) v).getText().toString();
-
+		
 		// Launching new Activity on selecting single List Item
 		Intent intent = new Intent(getApplicationContext(),
 		// DisplayExperimentActivity.class);

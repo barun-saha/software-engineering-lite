@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
 public class TabbedActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -19,7 +18,7 @@ public class TabbedActivity extends FragmentActivity implements
 	private static final String S_EMULATOR = "generic";
 
 	static {
-		Log.i(MainActivity.TAG, Build.BRAND);
+		//Log.i(MainActivity.TAG, Build.BRAND);
 		if (Build.BRAND.length() >= S_EMULATOR.length() && 
 				Build.BRAND.substring(0, S_EMULATOR.length())
 				.equalsIgnoreCase(S_EMULATOR)) {
@@ -50,7 +49,7 @@ public class TabbedActivity extends FragmentActivity implements
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager(), mExperimentId);
  
         assert mViewPager != null : "viewPager is null";
-        Log.d("SE", "" + mViewPager + " " +  mAdapter);
+        //Log.d("SE", "" + mViewPager + " " +  mAdapter);
         
         mViewPager.setAdapter(mAdapter);
         
@@ -88,17 +87,6 @@ public class TabbedActivity extends FragmentActivity implements
             public void onPageScrollStateChanged(int arg0) {
             }
         });
-
-        // Create the database if it doesn't already exist
-        /*try {
-			mDbHelper = new DataBaseHelper(getApplicationContext());
-			mDbHelper.createDataBase();
-		} catch (IOException e) {
-			e.printStackTrace();
-			Toast.makeText(getApplicationContext(), 
-					"An exception occured: " + e, Toast.LENGTH_LONG)
-					.show();
-		}*/
     }
  
     @Override

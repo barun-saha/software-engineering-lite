@@ -67,7 +67,6 @@ public class AboutDialog extends Dialog {
 		}
 
 		return text.toString();
-
 	}
 
 }

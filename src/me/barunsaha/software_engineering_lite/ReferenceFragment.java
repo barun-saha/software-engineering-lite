@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +58,7 @@ public class ReferenceFragment extends ExperimentFragment {
         
         for (ReferenceContent reference : allReferences) {
         	String url = reference.getUrl();
-        	Log.i(MainActivity.TAG, "" + reference);
+        	//Log.i(MainActivity.TAG, "" + reference);
         	
         	if (url != null) {
         	//if (! url.equalsIgnoreCase("x")) {
