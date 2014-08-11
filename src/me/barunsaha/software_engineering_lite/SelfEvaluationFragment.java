@@ -39,13 +39,19 @@ public class SelfEvaluationFragment extends ExperimentFragment {
 
 	@Override
 	protected void generateImagesPath() {
-		if (TabbedActivity.isEmulator) {
+		/*
+		 * Commenting for release
+		 * if (TabbedActivity.isEmulator) {
 			imagesPath = "file:///android_asset/images/self_evaluation/icons/";
 		} else {
+		*/
 			imagesPath = "file:///" + 
 					getActivity().getExternalFilesDir(null).getAbsolutePath() +
 					"/images/self_evaluation/icons/";
-		}
+		/*
+		 * Commenting for release
+		 * }
+		 * */
 		
 	}
 

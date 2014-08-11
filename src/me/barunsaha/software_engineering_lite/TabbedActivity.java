@@ -4,7 +4,6 @@ import me.barunsaha.software_engineering_lite.adapter.TabsPagerAdapter;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -14,9 +13,14 @@ public class TabbedActivity extends FragmentActivity implements
 
 	private int mExperimentId;
 	
-	public static boolean isEmulator;
+	/*
+	 * Commenting for release
+	 * public static boolean isEmulator;	
 	private static final String S_EMULATOR = "generic";
+	*/
 
+	/*
+	 * Commenting for release
 	static {
 		//Log.i(MainActivity.TAG, Build.BRAND);
 		if (Build.BRAND.length() >= S_EMULATOR.length() && 
@@ -27,6 +31,7 @@ public class TabbedActivity extends FragmentActivity implements
 			isEmulator = false;
 		}
 	}
+	*/
 	
 	private ViewPager mViewPager;
     private TabsPagerAdapter mAdapter;

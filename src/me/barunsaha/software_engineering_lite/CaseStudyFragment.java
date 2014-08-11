@@ -66,15 +66,21 @@ public class CaseStudyFragment extends ExperimentFragment {
 
 	@Override
 	protected void generateImagesPath() {
+		/*
+		 * Commenting for release
 		if (TabbedActivity.isEmulator) {
 			imagesPath = "file:///android_asset/images/case_study/" + mExperimentId + "/";
 			//imagesPath = "file:///android_asset/";
 		} else {
+		*/
 			//Log.i(MainActivity.TAG, "extPath: " + getActivity().getExternalFilesDir(null));
 			//Log.i(MainActivity.TAG, "absPath: " + getActivity().getExternalFilesDir(null).getAbsolutePath().toString());
 			imagesPath = "file:///" + 
 					getActivity().getExternalFilesDir(null).getAbsolutePath() +
 					"/images/case_study/" + mExperimentId + "/";
-		}	
+		/*
+		 * Commenting for release
+		}
+		*/	
 	}
 }
