@@ -26,9 +26,9 @@ public class MainActivity extends ListActivity {
 	// Package-wise access
 	protected static final String TAG = "SE-Lite";
 	//protected static final String S_STORAGE_PATH = "SE-Lite";
+	
 	private static final String FIRST_RUN = "firstRun";
-
-	private final static String SHARE_MSG = "Have you used Software Engineering Lite yet? Download and give it a try today!";
+	private final static String SHARE_MSG = "Have you used Software Engineering Lite yet? Download and give it a try today! https://play.google.com/store/apps/details?id=";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +46,19 @@ public class MainActivity extends ListActivity {
 		mAdapter = new ExperimentAdapter(this, R.layout.list_item, mExperiments);
 		setListAdapter(mAdapter);
 
-		// Copy assets only the first time
 		SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
 		if (sharedPref.getBoolean(FIRST_RUN, true)) {
-			new CopyAssetsTask(getApplicationContext())
+			// Copy assets only the first time
+			// Don't pass getApplicationContext() as context here -- affects
+			// the AsyncTask
+			new CopyAssetsTask(this)
 				.execute("css", "images", "lib", "js");
+			
 			SharedPreferences.Editor editor = sharedPref.edit();
 			editor.putBoolean(FIRST_RUN, false);
 			editor.commit();
 		}
+		
 		/*
 		copyAssets("css");
 		copyAssets("images");
@@ -94,7 +98,7 @@ public class MainActivity extends ListActivity {
 	    //ShareActionProvider myShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
 	    ShareActionProvider myShareActionProvider = (ShareActionProvider) item.getActionProvider();
 	    Intent myIntent = new Intent(Intent.ACTION_SEND);
-	    myIntent.putExtra(Intent.EXTRA_TEXT, SHARE_MSG);
+	    myIntent.putExtra(Intent.EXTRA_TEXT, SHARE_MSG + getPackageName());
 	    myIntent.setType("text/plain");
 	    myShareActionProvider.setShareIntent(myIntent);
 	    

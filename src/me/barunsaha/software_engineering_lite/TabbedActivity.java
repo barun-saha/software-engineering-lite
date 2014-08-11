@@ -1,9 +1,6 @@
 package me.barunsaha.software_engineering_lite;
 
-import java.io.IOException;
-
 import me.barunsaha.software_engineering_lite.adapter.TabsPagerAdapter;
-import me.barunsaha.software_engineering_lite.R;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
@@ -12,7 +9,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.widget.Toast;
 
 public class TabbedActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -36,7 +32,7 @@ public class TabbedActivity extends FragmentActivity implements
 	private ViewPager mViewPager;
     private TabsPagerAdapter mAdapter;
     private ActionBar mActionBar;
-    private DataBaseHelper mDbHelper;
+    //private DataBaseHelper mDbHelper;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +76,8 @@ public class TabbedActivity extends FragmentActivity implements
  
             @Override
             public void onPageSelected(int position) {
-                // on changing the page make respected tab selected
-                //mActionBar.setSelectedNavigationItem(position);
-                //TextView tview = (TextView) findViewById(R.id.tv_theory);
-                //if (tview != null) {
-                	//tview.setText("2Hello!");
-                //}
+                // On changing the page make respected tab selected
+                mActionBar.setSelectedNavigationItem(position);
             }
  
             @Override
@@ -98,7 +90,7 @@ public class TabbedActivity extends FragmentActivity implements
         });
 
         // Create the database if it doesn't already exist
-        try {
+        /*try {
 			mDbHelper = new DataBaseHelper(getApplicationContext());
 			mDbHelper.createDataBase();
 		} catch (IOException e) {
@@ -106,7 +98,7 @@ public class TabbedActivity extends FragmentActivity implements
 			Toast.makeText(getApplicationContext(), 
 					"An exception occured: " + e, Toast.LENGTH_LONG)
 					.show();
-		}
+		}*/
     }
  
     @Override
@@ -123,37 +115,4 @@ public class TabbedActivity extends FragmentActivity implements
     @Override
     public void onTabUnselected(Tab tab, FragmentTransaction ft) {
     }
-    
-    /*protected void loadContent() {        
-		Experiment experiment = mDbHelper.getExperiment(mExperimentId);
-		String title = "<h1>" + experiment.getTitle() + "</h1>";
-		String style = "<link rel=\"stylesheet\" type=\"text/css\" href=\"../../../css/isad_app.css\" />";
-		String contents = "<html><head>" + style + 
-				//"</head> <body> <h1>H1</h1> <h2>H2</h2> </body></html>";
-				"</head> <body>" +  title + experiment.getContent() + "</body></html>";
-		
-		////WebView webView = (WebView) findViewById(R.id.webview);
-		//summary = "<html><head></head><body> Image <img src=\"use_case_1.png\"> </body></html>";
-		//webView.loadData(summary, "text/html", null);
-		
-		String imagesPath;
-		
-		Log.i(MainActivity.TAG, "emulator: " + isEmulator);
-		
-		if (isEmulator) {
-			imagesPath = "file:///android_asset/images/theory/" + mExperimentId + "/";
-		} else {
-			imagesPath = "file:///" + 
-					getExternalFilesDir(null).getAbsolutePath() + 
-					"/images/theory/" + mExperimentId + "/";
-		}
-		
-		Log.i(MainActivity.TAG, imagesPath);
-		//Toast.makeText(getApplicationContext(), imagesPath, 
-			//	Toast.LENGTH_LONG)
-				//.show();
-		
-		//webView.loadDataWithBaseURL(imagesPath, 
-			//	contents, "text/html", "utf-8", null);
-    }*/
 }

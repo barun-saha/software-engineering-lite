@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
@@ -15,7 +16,8 @@ import android.widget.Toast;
 public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 	
 	private Context mContext;
-
+	private ProgressDialog mProgressDialog;
+	
 	public CopyAssetsTask(Context context) {
 		super();
 		mContext = context;
@@ -25,15 +27,19 @@ public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 	protected Void doInBackground(String... directories) {
 	    int nDirectories = directories.length;
 	    
-	    for (int i = 0; i < nDirectories; i++) {
-	    	copyAssets(directories[i]);
-            //publishProgress((int) ((i / (float) nDirectories) * 100));
+	    for (int i = 1; i <= nDirectories; i++) {
+	    	copyAssets(directories[i-1]);
+	    	// +1 because of the database creation later
+            publishProgress((int) ((i / (float) (nDirectories + 1)) * 100));
             // Escape early if cancel() is called
             if (isCancelled()) break;
 	    }
 	    
 	    try {
+	    	if (isCancelled()) return null;
+
 			new DataBaseHelper(mContext).createDataBase();
+			publishProgress(100);
 			//Log.i(MainActivity.TAG, "Db copied from task");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -50,6 +56,20 @@ public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 		Toast.makeText(mContext, 
 				"Copying resource files ...", Toast.LENGTH_SHORT)
 		.show();
+		
+		mProgressDialog = new ProgressDialog(mContext);
+        mProgressDialog.setMessage("Copying resource files ...");
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        mProgressDialog.setCancelable(false);
+        mProgressDialog.show();
+		
+	}
+	
+
+	@Override
+	protected void onProgressUpdate(Integer... values) {
+		super.onProgressUpdate(values);
+	    mProgressDialog.setProgress(values[0]);
 	}
 
 	@Override
@@ -59,6 +79,9 @@ public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 		Toast.makeText(mContext, 
 				"All resources copied!", Toast.LENGTH_SHORT)
 		.show();
+		
+		if (mProgressDialog.isShowing())
+			mProgressDialog.dismiss();
 	}
 
 	// Source: http://www.twodee.org/blog/?p=4518
