@@ -1,26 +1,27 @@
 package me.barunsaha.software_engineering_lite;
 
 import me.barunsaha.software_engineering_lite.adapter.TabsPagerAdapter;
-import android.app.ActionBar;
-import android.app.ActionBar.Tab;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 
-public class TabbedActivity extends FragmentActivity implements
+//public class TabbedActivity extends FragmentActivity implements
+public class TabbedActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
 
 	private int mExperimentId;
 	
-	/*
-	 * Commenting for release
-	 * public static boolean isEmulator;	
+	// Commenting for release
+	public static boolean isEmulator;	
 	private static final String S_EMULATOR = "generic";
-	*/
-
-	/*
-	 * Commenting for release
+	
+	// Commenting for release
 	static {
 		//Log.i(MainActivity.TAG, Build.BRAND);
 		if (Build.BRAND.length() >= S_EMULATOR.length() && 
@@ -31,7 +32,6 @@ public class TabbedActivity extends FragmentActivity implements
 			isEmulator = false;
 		}
 	}
-	*/
 	
 	private ViewPager mViewPager;
     private TabsPagerAdapter mAdapter;
@@ -58,7 +58,8 @@ public class TabbedActivity extends FragmentActivity implements
         
         mViewPager.setAdapter(mAdapter);
         
-        mActionBar = getActionBar();
+        //mActionBar = getActionBar();
+        mActionBar = getSupportActionBar();
         mActionBar.setHomeButtonEnabled(true);
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);        
@@ -94,18 +95,30 @@ public class TabbedActivity extends FragmentActivity implements
         });
     }
  
-    @Override
-    public void onTabReselected(Tab tab, FragmentTransaction ft) {
-    }
- 
-    @Override
-    public void onTabSelected(Tab tab, FragmentTransaction ft) {
-        // on tab selected
+    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+    	// on tab selected
         // show respected fragment view
         mViewPager.setCurrentItem(tab.getPosition());
     }
- 
-    @Override
-    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-    }
+
+	@Override
+	public void onTabReselected(Tab arg0,
+			android.support.v4.app.FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTabSelected(Tab arg0,
+			android.support.v4.app.FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTabUnselected(Tab arg0,
+			android.support.v4.app.FragmentTransaction arg1) {
+		// TODO Auto-generated method stub
+		
+	}
 }
