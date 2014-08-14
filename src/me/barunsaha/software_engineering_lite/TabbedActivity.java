@@ -1,15 +1,12 @@
 package me.barunsaha.software_engineering_lite;
 
 import me.barunsaha.software_engineering_lite.adapter.TabsPagerAdapter;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.app.ActionBarActivity;
 
 //public class TabbedActivity extends FragmentActivity implements
 public class TabbedActivity extends ActionBarActivity implements
@@ -17,6 +14,7 @@ public class TabbedActivity extends ActionBarActivity implements
 
 	private int mExperimentId;
 	
+	/*
 	// Commenting for release
 	public static boolean isEmulator;	
 	private static final String S_EMULATOR = "generic";
@@ -32,6 +30,7 @@ public class TabbedActivity extends ActionBarActivity implements
 			isEmulator = false;
 		}
 	}
+	*/
 	
 	private ViewPager mViewPager;
     private TabsPagerAdapter mAdapter;
