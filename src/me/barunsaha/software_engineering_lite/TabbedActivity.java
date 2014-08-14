@@ -96,22 +96,20 @@ public class TabbedActivity extends ActionBarActivity implements
     }
  
     public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-    	// on tab selected
-        // show respected fragment view
-        mViewPager.setCurrentItem(tab.getPosition());
     }
 
 	@Override
 	public void onTabReselected(Tab arg0,
 			android.support.v4.app.FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void onTabSelected(Tab arg0,
 			android.support.v4.app.FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
+		// on tab selected
+        // show respected fragment view
+        mViewPager.setCurrentItem(arg0.getPosition());
 		
 	}
 
