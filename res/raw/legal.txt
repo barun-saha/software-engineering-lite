@@ -1,5 +1,5 @@
 <p>
-Software Engineering Lite is based on the <a href="http://virtual-labs.ac.in/cse08/">Software Engineering Virtual Lab</a>, whose contents are released under the CC-BY-NC-SA-3.0 license. This is an individual initiative and does not bear any endorsement by the Virtual Labs project, MHRD, Government of India, or any other related parties.
+Software Engineering Lite is based on the <a href="http://virtual-labs.ac.in/cse08/">Software Engineering Virtual Lab</a>, whose contents are released under the CC-BY-NC-SA-3.0 license. This is an individual initiative and does not bear any endorsement by the Virtual Labs project, or MHRD, Government of India, or any other related parties.
 </p>
 
 <p>
