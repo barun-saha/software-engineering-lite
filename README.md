@@ -17,7 +17,7 @@ Software Engineering Lite is a valuable companion for students taking related co
 
 ## Licenses
 
-Software Engineering Lite uses content from the [Software Engineering Virtual Lab](http://virtual-labs.ac.in/cse08/) that has been released under the [CC-BY-NC-SA-3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/) license. A few spelling and grammar correcctions have been made. The content of this app &mdash; contained within the *isad.sqlite* file &mdash; is distributed under the same license. The source code of Software Engineering Lite is released under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.txt) license, and can be found at [GitHub](https://github.com/barun-saha/software-engineering-lite).
+Software Engineering Lite uses content from the [Software Engineering Virtual Lab](http://virtual-labs.ac.in/cse08/) that has been released under the [CC-BY-NC-SA-3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/) license. A few spelling and grammar correcctions have been made. The content of this app &mdash; contained within the *isad.sqlite* file and various images inside the *asses/images/* directory &mdash; are distributed under the same license. The source code of Software Engineering Lite is released under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.txt) license, and can be found at [GitHub](https://github.com/barun-saha/software-engineering-lite).
 
 
 ## Disclaimer
