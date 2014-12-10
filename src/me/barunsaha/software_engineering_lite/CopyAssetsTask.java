@@ -36,7 +36,9 @@ public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
             // Escape early if cancel() is called
             if (isCancelled()) break;
 	    }
+	    publishProgress(100);
 	    
+	    /*
 	    try {
 	    	if (isCancelled()) return null;
 
@@ -46,7 +48,7 @@ public class CopyAssetsTask extends AsyncTask<String, Integer, Void> {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	    
+	    */
 		return null;
 	    
 	}

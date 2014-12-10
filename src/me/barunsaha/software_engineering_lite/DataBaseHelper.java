@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -275,6 +276,47 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	    //Log.i(MainActivity.TAG, all.toString());
 	    
 	    return all;
+	}
+	
+	/**
+	 * Get an event, if any, matching today's date
+	 * @param day
+	 * @param month
+	 * @param year
+	 * @return {_id, event description}
+	 */
+	public String[] getEvent(int day, int month, int year) {
+		//Log.i(MainActivity.TAG, DB_PATH);
+		
+	    SQLiteDatabase db = this.getReadableDatabase();
+	 
+	    //Log.i(MainActivity.TAG, "" + db);
+	    
+	    Cursor cursor = db.query("greetings", 
+	    		new String[] { "_id", "e_description" }, 
+	    		"e_day=? AND e_month=? AND e_year=?",
+	            new String[] { String.valueOf(day), String.valueOf(month), 
+	    			String.valueOf(year) }, 
+	            null, null, null, null);
+	    
+	    String[] retVal = new String[2];
+	    
+	    if(cursor != null && cursor.moveToNext()) {
+	        retVal[0] = cursor.getString(0);
+	        retVal[1] = cursor.getString(1);
+	    } else {
+	    	retVal[0] = null;
+	    }
+	    
+	    return retVal;
+	}
+	
+	public void updateEvent(String id, int year) {
+		ContentValues cValues = new ContentValues();
+		cValues.put("e_year", year);
+		
+		SQLiteDatabase db = this.getReadableDatabase();
+		db.update("greetings", cValues, "_id=?", new String[] { id });
 	}
 	
 	/**
