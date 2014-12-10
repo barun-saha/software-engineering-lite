@@ -1,10 +1,14 @@
 package me.barunsaha.software_engineering_lite;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,9 +16,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.ShareActionProvider;
+import android.text.format.Time;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -79,13 +85,28 @@ public class MainActivity extends ActionBarActivity {
 			// Copy assets only the first time
 			// Don't pass getApplicationContext() as context here -- affects
 			// the AsyncTask
-			new CopyAssetsTask(this)
+			AsyncTask<String, Integer, Void> aTask = new CopyAssetsTask(this)
 				.execute("css", "images", "lib", "js");
-			
+
 			SharedPreferences.Editor editor = sharedPref.edit();
 			editor.putBoolean(FIRST_RUN, false);
 			editor.commit();
+			
+			// A bad hack to wait until the database is copied so that a
+			// greetings message, if any, can be displayed
+			//while (! aTask.getStatus().equals(AsyncTask.Status.FINISHED)) {
+				// Do nothing
+			//}
+			try {
+				new DataBaseHelper(this).createDataBase();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
+		// Show greetings, if any available
+		showGreetings();
 	}
 	
 	@Override
@@ -126,5 +147,53 @@ public class MainActivity extends ActionBarActivity {
 	    if (mShareActionProvider != null) {
 	    	mShareActionProvider.setShareIntent(myIntent);
 	    }
+	}
+	
+	private void showGreetings() {
+		// Get current date
+		Time today = new Time(Time.getCurrentTimezone());
+		today.setToNow();
+		int day = today.monthDay;
+		int month = today.month + 1;
+		int year = today.year;
+		
+		// Get event, if any, for today
+		// Create the database if it doesn't already exist
+		DataBaseHelper dbHelper = null;
+        try {
+			dbHelper = new DataBaseHelper(getApplicationContext());
+			////dbHelper.createDataBase();
+		} catch (Exception e) {
+			e.printStackTrace();
+			Toast.makeText(getApplicationContext(), 
+					"An exception occured: " + e, Toast.LENGTH_LONG)
+					.show();
+		}
+        
+        String[] event = dbHelper.getEvent(day, month, year);
+        String message = "None";
+        String id;
+        
+        if (event[0] != null) {
+        	message = event[1];
+        	id = event[0];
+        
+        	// Increment the year by 1 and update the database 
+    		// so that it is shown again in the next year
+        	year += 1;
+        	dbHelper.updateEvent(id, year);
+        	
+        	// Display the greetings		
+    		new AlertDialog.Builder(this)
+    	    	.setMessage(message)
+    	    	.setTitle(R.string.greetings)
+    	    	.setCancelable(true)
+    	    	.setNeutralButton(android.R.string.ok,
+    	    		new DialogInterface.OnClickListener() {
+    	    			public void onClick(DialogInterface dialog, 
+    	    					int whichButton) {}
+    	         	})
+    	        .show();
+        }
 	}
 }
