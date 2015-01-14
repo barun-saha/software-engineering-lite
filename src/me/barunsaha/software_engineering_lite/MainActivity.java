@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -85,7 +85,7 @@ public class MainActivity extends ActionBarActivity {
 			// Copy assets only the first time
 			// Don't pass getApplicationContext() as context here -- affects
 			// the AsyncTask
-			AsyncTask<String, Integer, Void> aTask = new CopyAssetsTask(this)
+			new CopyAssetsTask(this)
 				.execute("css", "images", "lib", "js");
 
 			SharedPreferences.Editor editor = sharedPref.edit();
@@ -104,8 +104,16 @@ public class MainActivity extends ActionBarActivity {
 				e.printStackTrace();
 			}
 		}
+		/*else {
+			SQLiteDatabase db = new DataBaseHelper(this).getReadableDatabase();
+			if (db != null) {
+				db.close();
+			}
+		}
+		*/
 		
 		// Show greetings, if any available
+		//Log.i(MainActivity.TAG, "To show greetings ...");
 		showGreetings();
 	}
 	
@@ -162,7 +170,7 @@ public class MainActivity extends ActionBarActivity {
 		DataBaseHelper dbHelper = null;
         try {
 			dbHelper = new DataBaseHelper(getApplicationContext());
-			////dbHelper.createDataBase();
+			dbHelper.createDataBase();
 		} catch (Exception e) {
 			e.printStackTrace();
 			Toast.makeText(getApplicationContext(), 

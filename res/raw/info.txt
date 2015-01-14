@@ -1,7 +1,7 @@
 <h3>Software Engineering Lite</h3>
 
-Version 1.1<br>
+Version 1.1.1<br>
 
-Copyright 2014, Barun Saha<br>
+Copyright 2014, 2015, Barun Saha<br>
 
 <em>http://barunsaha.me</em><br><br>
