@@ -14,7 +14,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
-import android.util.Log;
 import android.widget.Toast;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
@@ -25,7 +24,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 	private static final String DB_NAME = "isad.sqlite";
 	/** To be incremented every time there is any change in the database */
-	private static final int DB_VERSION = 5;
+	private static final int DB_VERSION = 6;
 
 	private SQLiteDatabase mDataBase;
 	private final Context mContext;
