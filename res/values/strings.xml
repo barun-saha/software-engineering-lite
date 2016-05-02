@@ -9,5 +9,6 @@
     <string name="share_title">Share</string>
     <string name="share_text">Have you used Software Engineering Lite yet? Download and give it a try today! </string>
     <string name="greetings">Greetings!</string>
+    <string name="content_not_found">Content not found! Email this issue to us with details.</string>
 
 </resources>

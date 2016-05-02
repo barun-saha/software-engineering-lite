@@ -1,7 +1,7 @@
 <p>
-Software Engineering Lite is based on the <a href="http://virtual-labs.ac.in/cse08/">Software Engineering Virtual Lab</a>, whose contents are released under the CC-BY-NC-SA-3.0 license. This is an individual initiative and does not bear any endorsement by the Virtual Labs project, or MHRD, Government of India, or any other related parties.
+Software Engineering Lite is based on the <a href="http://vlabs.iitkgp.ernet.in/se/">Software Engineering Virtual Lab</a>, whose contents are released under the CC-BY-NC-SA-3.0 license. This Android app is an individual initiative and does not bear any endorsement by the Virtual Labs project, or MHRD, Government of India, or any other related parties.
 </p>
 
 <p>
-Software Engineering Lite is released under the GNU GPL v3 license. No guarantee on the correctness/accuracy/completeness of the information is provided. Users are encouraged to verify the same.
+The source code of Software Engineering Lite is released under the GNU GPL v3 license. No guarantee on the correctness/accuracy/completeness of the information is provided. Users are encouraged to verify the same.
 </p>

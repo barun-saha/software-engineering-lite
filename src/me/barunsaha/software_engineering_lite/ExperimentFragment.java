@@ -1,7 +1,9 @@
 package me.barunsaha.software_engineering_lite;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.support.v4.app.Fragment;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 public abstract class ExperimentFragment extends Fragment {
@@ -27,14 +29,21 @@ public abstract class ExperimentFragment extends Fragment {
 
 	protected static String imagesPath = "";
 	
-	@SuppressLint("SetJavaScriptEnabled")
 	@Override
 	public void onStart() {
 		super.onStart();
 
 		WebView wview = getWebView();
 		//wview.getSettings().setJavaScriptEnabled(true);
-		
+		WebSettings wsettings = wview.getSettings();
+		wsettings.setUseWideViewPort(true);
+		wsettings.setSupportZoom(true);
+		wsettings.setBuiltInZoomControls(true);
+		//wsettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.);
+		// Use WideViewport and Zoom out if there is no viewport defined
+		wsettings.setUseWideViewPort(false);
+		wsettings.setLoadWithOverviewMode(true);
+
 		generateImagesPath();
 		
         if (wview != null) {

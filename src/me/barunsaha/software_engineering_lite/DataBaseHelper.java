@@ -24,7 +24,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 	private static final String DB_NAME = "isad.sqlite";
 	/** To be incremented every time there is any change in the database */
-	private static final int DB_VERSION = 5;
+	private static final int DB_VERSION = 6;
 
 	private SQLiteDatabase mDataBase;
 	private final Context mContext;
@@ -202,11 +202,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		Cursor cursor = db.query("isad_theory", new String[] { "_id", "title",
 				"content" }, "_id=?", new String[] { String.valueOf(id) },
 				null, null, null, null);
-		if (cursor != null)
-			cursor.moveToFirst();
+		String title = mContext.getResources().getString(R.string.content_not_found);
+		String content = "";
+		
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				title = cursor.getString(1);
+				content = cursor.getString(2);
+			}
+		}
 
-		Experiment experiment = new Experiment(Integer.parseInt(cursor
-				.getString(0)), cursor.getString(1), cursor.getString(2));
+		Experiment experiment = new Experiment(id, title, content);
 
 		return experiment;
 	}
@@ -222,11 +228,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		Cursor cursor = db.query("isad_theory", new String[] { "_id", "title",
 				"content" }, "_id=?", new String[] { String.valueOf(id) },
 				null, null, null, null);
-		if (cursor != null)
-			cursor.moveToFirst();
+		String title = mContext.getResources().getString(R.string.content_not_found);
+		String content = "";
+		
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				title = cursor.getString(1);
+				content = cursor.getString(2);
+			}
+		}
 
-		TheoryContent theory = new TheoryContent(Integer.parseInt(cursor
-				.getString(0)), cursor.getString(1), cursor.getString(2));
+		TheoryContent theory = new TheoryContent(id, title, content);
 
 		return theory;
 	}
@@ -241,15 +253,21 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		Cursor cursor = db.query("isad_casestudy", new String[] { "_id",
 				"title", "problem", "analysis" }, "theory_id=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
-		// Log.i(MainActivity.TAG, cursor.toString() + " " + id);
-
+		//Log.i(MainActivity.TAG, cursor.getColumnCount() + " : " + id);
+		String title = "Case study not found";
+		String problem = "";
+		String analysis = "";
+		
 		if (cursor != null) {
-			boolean status = cursor.moveToFirst();
-			// Log.i(MainActivity.TAG, "Cursor status: " + status);
+			if (cursor.moveToFirst()) {
+				title = cursor.getString(1);
+				problem = cursor.getString(2);
+				analysis = cursor.getString(3);
+			}
 		}
-
-		CaseStudyContent caseStudy = new CaseStudyContent(id,
-				cursor.getString(1), cursor.getString(2), cursor.getString(3));
+		
+		CaseStudyContent caseStudy = new CaseStudyContent(id, title, problem,
+				analysis);
 
 		return caseStudy;
 	}
@@ -274,13 +292,17 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 		ArrayList<SelfEvaluationContent> all = new ArrayList<SelfEvaluationContent>();
 
-		while (cursor.moveToNext()) {
-			SelfEvaluationContent selfEvaluation = new SelfEvaluationContent(
-					id, cursor.getInt(0), cursor.getString(1),
-					cursor.getString(2), cursor.getString(3),
-					cursor.getString(4), cursor.getString(5), cursor.getInt(6));
-
-			all.add(selfEvaluation);
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				while (cursor.moveToNext()) {
+					SelfEvaluationContent selfEvaluation = new SelfEvaluationContent(
+							id, cursor.getInt(0), cursor.getString(1),
+							cursor.getString(2), cursor.getString(3),
+							cursor.getString(4), cursor.getString(5), cursor.getInt(6));
+		
+					all.add(selfEvaluation);
+				}
+			}
 		}
 
 		return all;
@@ -302,12 +324,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 				null);
 		// Log.i(MainActivity.TAG, cursor.toString() + " " + id);
 
-		while (cursor.moveToNext()) {
-			ReferenceContent reference = new ReferenceContent(id,
-					cursor.getString(0), cursor.getString(1), null, null, null,
-					null);
-
-			all.add(reference);
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				while (cursor.moveToNext()) {
+					ReferenceContent reference = new ReferenceContent(id,
+							cursor.getString(0), cursor.getString(1), null, null, null,
+							null);
+		
+					all.add(reference);
+				}
+			}
 		}
 
 		// Books
@@ -320,12 +346,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 				new String[] { String.valueOf(id) }, null, null,
 				"isad_reference._id ASC");
 
-		while (cursor.moveToNext()) {
-			ReferenceContent reference = new ReferenceContent(id, null, null,
-					cursor.getString(0), cursor.getString(1),
-					cursor.getString(2), cursor.getString(3));
-
-			all.add(reference);
+		if (cursor != null) {
+			if (cursor.moveToFirst()) {
+				while (cursor.moveToNext()) {
+					ReferenceContent reference = new ReferenceContent(id, null, null,
+							cursor.getString(0), cursor.getString(1),
+							cursor.getString(2), cursor.getString(3));
+		
+					all.add(reference);
+				}
+			}
 		}
 		// Log.i(MainActivity.TAG, all.toString());
 
