@@ -2,6 +2,7 @@ package me.barunsaha.software_engineering_lite;
 
 import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 public abstract class ExperimentFragment extends Fragment {
@@ -34,6 +35,10 @@ public abstract class ExperimentFragment extends Fragment {
 
 		WebView wview = getWebView();
 		//wview.getSettings().setJavaScriptEnabled(true);
+		WebSettings wsettings = wview.getSettings();
+		wsettings.setUseWideViewPort(true);
+		wsettings.setSupportZoom(true);
+		wsettings.setBuiltInZoomControls(true);
 		
 		generateImagesPath();
 		
