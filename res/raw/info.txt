@@ -2,6 +2,6 @@
 
 Version 1.2<br>
 
-Copyright 2014, 2015, 2016, Barun Saha<br>
+Copyright 2014-2016, Barun Saha<br>
 
 <em>http://barunsaha.me</em><br><br>
